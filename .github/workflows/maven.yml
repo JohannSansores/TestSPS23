@@ -15,3 +15,6 @@ jobs:
      - name: Maven
        run: mvn install
      - run: mvn verify
+     - name: Condition
+       if: ${{ job.status }} == success
+       run: mvn package
