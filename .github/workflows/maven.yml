@@ -18,3 +18,8 @@ jobs:
      - name: Condition
        if: ${{ job.status }} == success
        run: mvn package
+     - run: mkdir staging && cp target/*.jar staging
+     - name: Publish
+       uses: actions/upload-artifact@v3
+       with:
+        path: staging
