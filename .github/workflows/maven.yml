@@ -17,5 +17,4 @@ jobs:
         java-version: '17'
         distribution: 'temurin'
      - name: Maven
-       run: chmod +x mvnw
-     - run: ./mvnw verify
+       run: mvn
