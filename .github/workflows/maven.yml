@@ -15,5 +15,3 @@ jobs:
      - name: Maven
        run: mvn install
      - run: mvn package
-     - name: Maven Verify
-       run: mvnw verify
