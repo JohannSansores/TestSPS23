@@ -16,5 +16,4 @@ jobs:
        run: mvn install
      - run: mvn package
      - name: Maven Verify
-       run: chmod +x mvnw
-     - run: ./mvnw verify
+       run: mvnw verify
