@@ -6,7 +6,8 @@ on:
     branches: [ "master" ]
 jobs:
   build:
-    runs-on: maven:3.9.4-eclipse-temurin-17-alpine
+    runs-on: ubuntu-latest
+    container: maven:3.9.4-eclipse-temurin-17-alpine
     steps:
      - name: Check out repository code
        uses: actions/checkout@v2
