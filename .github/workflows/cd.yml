@@ -1,8 +1,7 @@
-name: Java CI with Maven
+name: CD Maven
 on:
-  push:
-    branches: [ "develop" ]
-  pull_request:
+  registry_package: 
+    types: [ "published" ]
     branches: [ "master" ]
 jobs:
   test:
@@ -18,9 +17,7 @@ jobs:
      - run: mvn verify
      - name: Condition Package
        if: ${{ job.status }} == success
-       run: mvn package
-     - name: Upload Package
-       uses: actions/upload-artifact@v2
-       with:
-        name: github-package
-        path: ./target/*.jar
+     - name: Publish package
+     - run: mvn --batch-mode deploy -Dmaven.test.skip
+       env:
+        GITHUB_TOKEN: ${{ secrets.TOKEN }}
