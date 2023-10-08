@@ -1,0 +1,23 @@
+name: CD Maven
+on:
+  registry_package: 
+    types: [ "published" ]
+    branches: [ "master" ]
+jobs:
+  test:
+    name: Maven Test
+    runs-on: ubuntu-latest
+    container: maven:3.9.4-eclipse-temurin-17-alpine
+    steps:
+     - name: Check out repository code
+       uses: actions/checkout@v2
+     - run: echo "💡 The ${{ github.repository }} repository has been cloned to the runner."
+     - name: Maven commands
+       run: mvn install
+     - run: mvn verify
+     - name: Condition Package
+       if: ${{ job.status }} == success
+     - name: Publish package
+     - run: mvn --batch-mode deploy -Dmaven.test.skip
+       env:
+        GITHUB_TOKEN: ${{ secrets.TOKEN }}
