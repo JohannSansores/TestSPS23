@@ -16,8 +16,7 @@ jobs:
      - name: Maven commands
        run: mvn install
      - run: mvn verify
-     - name: Condition
+     - name: Condition Package
        if: ${{ job.status }} == success
-     - name: Package
        uses: actions/upload-pages-artifact@v2
      - run: mvn package
