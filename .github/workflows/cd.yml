@@ -9,6 +9,9 @@ jobs:
     name: Maven Test
     runs-on: ubuntu-latest
     container: maven:3.9.4-eclipse-temurin-17-alpine
+    permissions: 
+      contents: read
+      packages: write 
     steps:
      - name: Check out repository code
        uses: actions/checkout@v2
@@ -18,7 +21,6 @@ jobs:
      - run: mvn verify
      - name: Condition Package
        if: ${{ job.status }} == success
-     - name: Publish package
        run: mvn --batch-mode deploy -Dmaven.test.skip
        env:
         GITHUB_TOKEN: ${{ secrets.TOKEN }}
