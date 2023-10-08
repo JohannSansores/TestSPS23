@@ -18,5 +18,13 @@ jobs:
      - run: mvn verify
      - name: Condition Package
        if: ${{ job.status }} == success
+       run: mvn package
+     - run: ls
+     - run: pwd
+     - name: Upload Package
        uses: actions/upload-pages-artifact@v2
-     - run: mvn package
+       with:
+        name: github-pages
+        path: _site/
+        retention-days: 1
+        
