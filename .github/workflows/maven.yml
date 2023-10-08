@@ -1,11 +1,12 @@
 name: Java CI with Maven
 on:
   push:
-    branches: [ "master" ]
+    branches: [ "develop" ]
   pull_request:
     branches: [ "master" ]
 jobs:
   test:
+    name: Maven Test
     runs-on: ubuntu-latest
     container: maven:3.9.4-eclipse-temurin-17-alpine
     steps:
@@ -18,8 +19,3 @@ jobs:
      - name: Condition
        if: ${{ job.status }} == success
        run: mvn package
-     - run: mkdir staging && cp target/*.jar staging
-     - name: Publish
-       uses: actions/upload-artifact@v3
-       with:
-        path: staging
