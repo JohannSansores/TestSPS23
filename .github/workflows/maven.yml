@@ -1,0 +1,25 @@
+name: Java CI with Maven
+on:
+  push:
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    container: maven:3.9.4-eclipse-temurin-17-alpine
+    steps:
+     - name: Check out repository code
+       uses: actions/checkout@v2
+     - run: echo "💡 The ${{ github.repository }} repository has been cloned to the runner."
+     - name: Maven commands
+       run: mvn install
+     - run: mvn verify
+     - name: Condition
+       if: ${{ job.status }} == success
+       run: mvn package
+     - run: mkdir staging && cp target/*.jar staging
+     - name: Publish
+       uses: actions/upload-artifact@v3
+       with:
+        path: staging
