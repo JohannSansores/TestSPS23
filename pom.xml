@@ -6,7 +6,7 @@
          <repository>
           <id>github</id>
           <name>JohannSansores</name>
-          <url>https://maven.pkg.github.com/JohannSansores/TestSPS23</url>
+          <url>https://maven.pkg.github.com/FCJG/TestSPS23</url>
          </repository>
         </distributionManagement>
 	<parent>
