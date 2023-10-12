@@ -23,4 +23,5 @@ jobs:
        if: ${{ job.status }} == success
        env:
         GITHUB_TOKEN: ${{ secrets.TOKEN }}
-       run: mvn deploy -Dregistry=https://maven.pkg.github.com/JohannSansores/TestSPS23 -Dtoken={{ $GITHUB_TOKEN }}
+       run: mvn install
+     - run: mvn deploy -Dregistry=https://maven.pkg.github.com/JohannSansores/TestSPS23
