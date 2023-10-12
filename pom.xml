@@ -4,7 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<distributionManagement>
          <repository>
-          <id>FCJG/TestSPS23</id>
+          <id>FCJG.TestSPS23</id>
           <name>JohannSansores</name>
           <url>https://maven.pkg.github.com/FCJG/TestSPS23</url>
          </repository>
