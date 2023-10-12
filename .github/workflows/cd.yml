@@ -25,6 +25,6 @@ jobs:
        run: mvn clean install
      - run: pwd
      - run: ls -l
-     - run: mvn deploy -Dregistry=https://maven.pkg.github.com/FCJG/TestSPS23 -Dtoken=$GITHUB_TOKEN
+     - run: mvn deploy -Dregistry=https://maven.pkg.github.com/FCJG/TestSPS23 -Dtoken=$GITHUB_TOKEN --file ./pom.xml
        env:
         GITHUB_TOKEN: ${{ secrets.TOKEN }}
