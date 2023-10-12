@@ -5,8 +5,8 @@
 	<distributionManagement>
          <repository>
           <id>github</id>
-          <name>FCJG</name>
-          <url>https://maven.pkg.github.com/FCJG/TestSPS23</url>
+          <name>JohannSansores</name>
+          <url>https://maven.pkg.github.com/JohannSansores/TestSPS23</url>
          </repository>
         </distributionManagement>
 	<parent>
