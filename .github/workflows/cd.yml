@@ -22,7 +22,7 @@ jobs:
      - run: mvn verify
      - name: Condition Package
        if: ${{ job.status }} == success
-       run: mvn install
+       run: mvn clean install
      - run: mvn --batch-mode deploy
        env:
         GITHUB_TOKEN: ${{ secrets.TOKEN }}
