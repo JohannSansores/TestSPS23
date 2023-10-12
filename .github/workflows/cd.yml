@@ -21,7 +21,7 @@ jobs:
      - run: mvn verify
      - name: Condition Package
        if: ${{ job.status }} == success
+       run: mvn install
+     - run: mvn --batch-mode deploy
        env:
         GITHUB_TOKEN: ${{ secrets.TOKEN }}
-       run: mvn install
-     - run: mvn deploy -e -Dregistry=https://maven.pkg.github.com/FCJG/TestSPS23 -Dtoken=$GITHUB_TOKEN
